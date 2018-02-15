@@ -1,11 +1,19 @@
 package com.lwg.deck;
 
+import javax.validation.constraints.NotNull;
+
 import com.lwg.card.Card;
 
 public abstract class Deck {
-    protected final Card[] cards;
+    @NotNull
+    private final Card[] cards;
 
-    protected Deck(final Card... cards) {
-        this.cards = cards.clone();
+    public Deck(@NotNull final Card... cards) {
+        this.cards = cards;
+    }
+
+    @NotNull
+    public Card[] getCards() {
+        return this.cards;
     }
 }
